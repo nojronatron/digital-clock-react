@@ -10,13 +10,16 @@ const [time, setTime] = useState(new Date())
   const hours = time.getHours()
   const minutes = time.getMinutes()
   const seconds = time.getSeconds()
+  const currHours = hours < 10 ? `0${hours}` : hours
+  const currMinutes = minutes < 10 ? `0${minutes}` : minutes
+  const currSeconds = seconds < 10 ? `0${seconds}` : seconds
 
   return (
     <section>
       <div id="clock-face">
-        <Display id="clock-hours" value={hours} height="300" count="2" skew />
-        <Display id="clock-minutes" value={minutes} height="300" count="2" skew />
-        <Display id="clock-seconds" value={seconds} height="200" count="2" skew />
+        <Display id="clock-hours" value={currHours} height="300" count="2" skew />
+        <Display id="clock-minutes" value={currMinutes} height="300" count="2" skew />
+        <Display id="clock-seconds" value={currSeconds} height="200" count="2" skew />
         <p id="hours-label">Hours</p>
         <p id="minutes-label">Minutes</p>
         <p id="seconds-label">Seconds</p>
